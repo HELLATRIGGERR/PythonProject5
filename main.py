@@ -1,24 +1,17 @@
 import tkinter as tk
 import random
 
-# ---------------------------------------------------
-#  ПАРАМЕТРИ
-# ---------------------------------------------------
-CANVAS_WIDTH = 400    # ширина поля в пікселях
-CANVAS_HEIGHT = 400   # висота поля в пікселях
-CELL_SIZE = 20        # розмір однієї клітинки (пікселів)
-DELAY = 100           # час між оновленнями змійки (мс)
 
-# З них випливає, що в нас 20 стовпців та 20 рядків (400/20=20)
+CANVAS_WIDTH = 400
+CANVAS_HEIGHT = 400
+CELL_SIZE = 20
+DELAY = 200
 
 
-# ---------------------------------------------------
-#  КЛАС ДОДАТКА (З МЕНЮ ТА ЕКРАНОМ ГРИ)
-# ---------------------------------------------------
 class SnakeGameApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Snake Game (покращена версія)")
+        self.root.title("Snake Game ")
 
         # Створюємо полотно для малювання
         self.canvas = tk.Canvas(root, width=CANVAS_WIDTH, height=CANVAS_HEIGHT, bg="white")
@@ -256,10 +249,6 @@ class SnakeGameApp:
         self.canvas.create_rectangle(150, 210, 250, 250, fill="lightgreen")
         self.canvas.create_text(200, 230, text="Quit", font=("Arial", 14))
 
-
-# ---------------------------------------------------
-#  КЛАС ЗМІЙКИ
-# ---------------------------------------------------
 class Snake:
     def __init__(self):
         """
@@ -295,10 +284,6 @@ class Snake:
         """Змійка зростає, коли з'їдає яблуко (дублюємо останній сегмент)."""
         self.body.append(self.body[-1])
 
-
-# ---------------------------------------------------
-#  КЛАС ЯБЛУКА
-# ---------------------------------------------------
 class Apple:
     def __init__(self, snake_body):
         """Одразу обираємо випадкове місце, де немає змійки."""
@@ -314,10 +299,6 @@ class Apple:
             if (self.x, self.y) not in snake_body:
                 break
 
-
-# ---------------------------------------------------
-#  ЗАПУСК
-# ---------------------------------------------------
 if __name__ == "__main__":
     root = tk.Tk()
     app = SnakeGameApp(root)
