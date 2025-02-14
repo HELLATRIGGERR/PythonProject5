@@ -13,7 +13,7 @@ class SnakeGameApp:
         self.root = root
         self.root.title("Snake Game ")
 
-        # Створюємо полотно для малювання
+
         self.canvas = tk.Canvas(root, width=CANVAS_WIDTH, height=CANVAS_HEIGHT, bg="white")
         self.canvas.pack()
 
