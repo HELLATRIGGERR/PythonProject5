@@ -33,15 +33,10 @@ class SnakeGameApp:
         self.apple = None
 
         # Спробуємо завантажити зображення (якщо їх немає, підемо в fallback)
-        try:
-            self.apple_img = tk.PhotoImage(file="apple.png")
-            self.snake_head_img = tk.PhotoImage(file="snake_head.png")
-            self.snake_body_img = tk.PhotoImage(file="snake_body.png")
-        except:
-            # Якщо завантажити не вдалося – будемо малювати прямокутниками
-            self.apple_img = None
-            self.snake_head_img = None
-            self.snake_body_img = None
+
+        self.apple_img = None
+        self.snake_head_img = None
+        self.snake_body_img = None
 
         # Обробка кліків мишкою для меню та екрану завершення
         self.canvas.bind("<Button-1>", self.handle_click)
