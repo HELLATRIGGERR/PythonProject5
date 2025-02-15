@@ -174,6 +174,7 @@ class Apple:
                 break
 
 if __name__ == "__main__":
+    print("HI")
     root = tk.Tk()
     app = SnakeGameApp(root)
     root.mainloop()
