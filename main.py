@@ -5,7 +5,7 @@ CANVAS_WIDTH = 400
 CANVAS_HEIGHT = 400
 CELL_SIZE = 20
 DELAY = 200
-APPLE_COUNT = 3
+
 
 class SnakeGameApp:
     def __init__(self, root):
@@ -50,7 +50,7 @@ class SnakeGameApp:
         self.state = "GAME"
         self.score = 0
         self.snake = Snake()
-        self.apples = [Apple(self.snake.body) for _ in range(APPLE_COUNT)]  # Створюємо N яблук
+        self.apples = [Apple(self.snake.body) for _ in range(3)]
 
         self.root.bind("<Up>", lambda e: self.snake.set_direction(0, -1))
         self.root.bind("<Down>", lambda e: self.snake.set_direction(0, 1))
