@@ -164,7 +164,7 @@ class Apple:
         self.reposition(snake_body)
 
     def reposition(self, snake_body):
-        """Знаходить нове місце для яблука, яке не перетинається зі змійкою."""
+
         cols = CANVAS_WIDTH // CELL_SIZE
         rows = CANVAS_HEIGHT // CELL_SIZE
         while True:
