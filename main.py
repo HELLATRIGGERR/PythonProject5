@@ -5,7 +5,7 @@ CANVAS_WIDTH = 400
 CANVAS_HEIGHT = 400
 CELL_SIZE = 20
 DELAY = 200
-APPLE_COUNT = 3  # Кількість яблук
+APPLE_COUNT = 3
 
 class SnakeGameApp:
     def __init__(self, root):
@@ -18,7 +18,7 @@ class SnakeGameApp:
         self.state = "MENU"
         self.score = 0
         self.snake = None
-        self.apples = []  # Тут буде список яблук
+        self.apples = []
 
         self.canvas.bind("<Button-1>", self.handle_click)
         self.draw_menu()
@@ -46,7 +46,7 @@ class SnakeGameApp:
                 self.root.destroy()
 
     def start_game(self):
-        """Підготовка стану для початку гри: обнуляємо змійку, яблука, рахунок."""
+
         self.state = "GAME"
         self.score = 0
         self.snake = Snake()
@@ -60,7 +60,7 @@ class SnakeGameApp:
         self.game_loop()
 
     def game_loop(self):
-        """Основний цикл оновлення гри."""
+
         if self.state != "GAME":
             return
 
@@ -72,18 +72,18 @@ class SnakeGameApp:
             self.game_over()
             return
 
-        # Перевіряємо чи змійка з'їла яблуко
+
         for apple in self.apples:
             if head == (apple.x, apple.y):
                 self.score += 1
                 self.snake.grow()
-                apple.reposition(self.snake.body)  # Переміщуємо лише з'їдене яблуко
+                apple.reposition(self.snake.body)
 
         self.draw_game()
         self.root.after(DELAY, self.game_loop)
 
     def draw_game(self):
-        """Малює змійку, яблука та поточний рахунок."""
+
         self.canvas.delete("all")
 
         # Малюємо яблука
@@ -107,7 +107,7 @@ class SnakeGameApp:
                                 font=("Arial", 14), fill="black")
 
     def wrap_around(self):
-        """Реалізує проходження крізь стіни."""
+
         head = self.snake.body[0]
         x, y = head
         max_col = (CANVAS_WIDTH // CELL_SIZE) - 1
@@ -125,7 +125,7 @@ class SnakeGameApp:
         self.snake.body[0] = (x, y)
 
     def game_over(self):
-        """Завершує гру та показує екран "GAME OVER" з вибором дії."""
+
         self.state = "GAME_OVER"
         self.canvas.delete("all")
         self.canvas.create_text(CANVAS_WIDTH // 2, 100, text="GAME OVER",
